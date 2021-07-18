@@ -1,0 +1,103 @@
+% Encoding settings
+\usepackage[utf8]{inputenc}
+
+% Paper size
+\usepackage{a4}
+
+
+%Justify, centering
+\usepackage{ragged2e}
+
+% Headings
+\usepackage{fancyhdr}
+
+% More symbols
+\usepackage{textcomp}\usepackage{gensymb}
+
+% ISO date
+\usepackage[english]{isodate}
+
+% Multi column
+\usepackage{multicol}
+
+% Figures
+\usepackage{graphicx}
+
+% Subfigures (obsolete)
+\usepackage{subfigure}
+
+% Bibliography
+\usepackage[numbers]{natbib}
+
+% Nicer tables
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+% Colors
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+
+% Additional math functionality
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Nice fractions
+\usepackage{nicefrac}
+
+% Upper case greek letters
+\usepackage{upgreek}
+
+% Margins 
+\usepackage{geometry}
+\geometry{
+	left=30mm,
+	right=20mm,
+	bottom=20mm,
+	top=30mm,
+}
+
+% ISO math notation
+\usepackage{isomath}
+\renewcommand{\vec}{\vectorsym}
+\newcommand{\mat}{\matrixsym}
+
+% Units
+\usepackage{units}
+
+% Rotated objects
+\usepackage{rotating}
+
+% Paragprah: Indent, Spacing
+\setlength{\parindent}{4em}
+\renewcommand{\baselinestretch}{1.5}
+
+
+% Include PDF pages
+\usepackage{pdfpages}
+\includepdfset{pages={-}, frame=true, pagecommand={\thispagestyle{fancy}}}
+
+% Headings
+\rhead{}
+\lhead{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Gantt chart
+\usepackage{pgfgantt}
+
+% Links (last package)
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+% Clever references (has to be loaded after hyperref)
+\usepackage{cleveref}
+
+
+

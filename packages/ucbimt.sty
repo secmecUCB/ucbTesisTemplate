@@ -1,0 +1,281 @@
+
+
+
+\def\Presentation@Version{0.1}
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{ucbimt}[2021/17/07, v. \Presentation@Version]
+\typeout{providing new style definitions and commands ---}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+% Customize sections, subsections, chapters
+\usepackage{titlesec}
+\usepackage[spanish]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newif\ifimt
+%\DeclareOption{imt}{\global\imttrue}
+
+%\newif\ifpdt
+%\newif\ifpdg
+%\newif\td
+%\DeclareOption{pdt}{
+%	\global\pdttrue
+%	\global\pdgfalse
+%	\global\tdfalse
+%}
+%\DeclareOption{pdg}{
+%	\global\pdtfalse
+%	\global\pdgtrue
+%	\global\tdfalse
+%}
+%\DeclareOption{tb}{
+%	\global\pdtfalse
+%	\global\pdgfalse
+%	\global\tdtrue
+%}
+
+%\ExecuteOptions{imt,pdt}
+%\ProcessOption
+
+\newcommand{\@titulo}{}
+\newcommand{\titulo}[1]{\gdef\@titulo{#1}}
+
+\newcommand{\@subtitle}{}
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+
+\newcommand{\@jefedeCarrera}{}
+\newcommand{\jefedeCarrera}[1]{\gdef\@jefedeCarrera{#1}}
+
+\newcommand{\@relator}{}
+\newcommand{\relator}[1]{\gdef\@relator{#1}}
+
+\newcommand{\@docenteInv}{}
+\newcommand{\docenteInv}[1]{\gdef\@docenteInv{#1}}
+
+\newcommand{\@supervisor}{}
+\newcommand{\supervisor}[1]{\gdef\@supervisor{#1}}
+
+\newcommand{\@estudianteA}{}
+\newcommand{\estudianteA}[1]{\gdef\@estudianteA{#1}}
+
+\newcommand{\@fecha}{}
+\newcommand{\fecha}[2]{\gdef\@fecha{#1 #2}}
+
+\newcommand{\@projectDay}{}
+\newcommand{\projectDay}[1]{\gdef\@projectDay{#1}}
+
+\newcommand{\@projectMonth}{}
+\newcommand{\projectMonth}[1]{\gdef\@projectMonth{#1}}
+
+\newcommand{\@projectYear}{}
+\newcommand{\projectYear}[1]{\gdef\@projectYear{#1}}
+
+
+\renewcommand{\maketitle}{
+	
+	\pagestyle{empty}
+	\begin{center}
+		\hspace{0.02\textwidth}
+		\parbox[c][\textheight][t]{0.97\textwidth}{
+		\begin{center}
+		\vspace{-0.5cm}
+		\includegraphics[scale=0.21]{images/ucbLogo2.png}\\
+		
+		{\huge Mecatronica }
+				
+		\vspace*{1.0cm}
+		{ \bf \@estudianteA }
+		
+		\vspace*{0.5cm}
+		{ \bf \MakeUppercase{\@title} }
+		
+		\vspace{3cm}
+		\begin{tabular}{lp{6cm}c}
+			& &\multirow{2}{10cm}{\small{Perfil de Tesis/Proyecto de Grado/Trabajo Dirigido
+					presentado a la Carrera de Ingeniería Mecatrónica para
+					obtener su habilitación a Taller de Grado II.}}\\
+			& &\\
+			& &\multirow{6}{10cm}{Tutor: \@supervisor}\\
+		\end{tabular}
+		
+		\vspace{4.5cm}
+		\small{
+			Santa Cruz - Bolivia \par
+			\@projectMonth, \@projectYear
+		}
+		
+	
+		\end{center}
+		}
+	\end{center}
+
+	
+	\pagestyle{empty}
+	\begin{center}
+	\hspace{0.02\textwidth}
+	\parbox[c][\textheight][t]{0.97\textwidth}{
+		\begin{center}
+			
+			{ \bf \@estudianteA \par }
+			
+			\vspace{0.5cm}
+			{ \bf \MakeUppercase{\@title} }
+			
+		\end{center}
+			\vspace{0.5cm}	
+			{ El presente Perfil de Tesis de Grado/Proyecto de Grado/Trabajo Dirigido fue sometido a análisis y defendido ante el tribunal compuesto por: }
+			
+			
+		\begin{center}
+			
+			\vspace{1.5cm}
+			% line
+			\hspace*{0pt}
+			\textcolor{gray}{\rule{180pt}{0.1pt}}
+			
+			\vspace{-0.2cm}
+			\@jefedeCarrera \par 
+			\MakeUppercase{\bf{ Director de carrera }} \\[-0.2cm]
+			\MakeUppercase{\bf{ ingeniería mecatronica }} 
+		
+			\vspace{1.5cm}
+			% line
+			\hspace*{0pt}
+			\textcolor{gray}{\rule{180pt}{0.1pt}}
+			
+			\vspace{-0.2cm}
+			\@supervisor \par 
+			\MakeUppercase{\bf{ Tutor }}
+		
+			\vspace{1.5cm}
+			% line
+			\hspace*{0pt}
+			\textcolor{gray}{\rule{180pt}{0.1pt}}
+			
+			\vspace{-0.2cm}
+			\@relator \par 
+			\MakeUppercase{\bf{ relator }}
+			
+			\vspace{1.5cm}
+			% line
+			\hspace*{0pt}
+			\textcolor{gray}{\rule{180pt}{0.1pt}}
+			
+			\vspace{-0.2cm}
+			\@docenteInv \par 
+			\MakeUppercase{\bf{ Invitado }}
+			
+			\vspace{3cm}
+			Santa Cruz de la Sierra, \@projectDay\ de \@projectMonth\ del \@projectYear 
+			
+		\end{center}
+	}
+	\end{center}
+\cleardoublepage
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\standardChapterStyle}{%
+	\titleformat{\chapter}[display]
+	{\normalfont\LARGE\bfseries}
+	{\chaptertitlename\ \thechapter}
+	{20pt}
+	{\Huge}
+	\titlespacing*{\chapter}
+	{0pt}
+	{50pt}
+	{40pt}
+}
+
+\newcommand*{\myChapterStyle}{%
+	\titleformat{\chapter}[display]
+	{\normalfont\LARGE\bfseries \vspace{-1cm}}
+	{ \vline height 45pt depth 55pt width 15pt \hspace{1.8cm} \MakeUppercase{\chaptertitlename}\ \thechapter}
+	{-5pt}
+	{ \vline depth 45pt width 15pt \hspace{1.8cm} \MakeUppercase}
+	\titlespacing*{\chapter}
+	{0pt}
+	{50pt}
+	{40pt}
+}
+
+\newcommand*{\myChapterStyleB}{%
+	\titleformat{\chapter}[display]
+	{\normalfont\fontsize{12}{15}\bfseries}
+	{\chaptertitlename\ \thechapter}
+	{20pt}
+	{}
+	\titlespacing*{\chapter}
+	{0pt}
+	{50pt}
+	{40pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\standardSectionStyle}{%
+	\titleformat{\section}
+	{\normalfont\bfseries}
+	{\thesection}
+	{1em}
+	{}
+}
+
+\newcommand{\mySectionStyle}{%
+	\titleformat{\section}
+	{\normalfont\fontsize{12}{15}\bfseries}
+	{\thesection}
+	{1em}
+	{}
+}
+
+\newcommand*{\mySectionStyleB}{%
+	\titleformat{\section}
+	{\normalfont\fontsize{12}{15}\bfseries\centering}
+	{\MakeUppercase{ \thesection }}
+	{1em}
+	{\MakeUppercase}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\subsection}
+{\normalfont\fontsize{12}{15}\bfseries\itshape}
+{\thesubsection}
+{1em}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Changing the title in table on context, tables and figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addto\captionsspanish{%
+	\renewcommand{\contentsname}{\MakeUppercase{ Índice de general }}
+}
+
+
+\addto\captionsspanish{%
+	\renewcommand{\listtablename}{\MakeUppercase{ Índice de tablas }}
+}
+
+\addto\captionsspanish{%
+	\renewcommand{\listfigurename}{\MakeUppercase{ Índice de figuras }}
+}
+
+
+
+
