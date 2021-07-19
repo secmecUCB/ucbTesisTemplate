@@ -8,6 +8,5 @@ Used some ideas from:
  The bibliography used in this template is:
  - [ISO 690](https://github.com/michal-h21/biblatex-iso690)
  
- Note: Since biblatex is used, the bib-file should be specified with \addbibresource{...}.
-	Avoid `\bibliography` is 'deprecated' and shouldn't be used any longer.
-	And use `biber` after `pdflatex` otherwise you will face an error
+ Note: Since biblatex is used, the bib-file should be specified with \addbibresource{...}. Therefore
+	avoid `\bibliography` and compile it using `biber` after `pdflatex` otherwise you will face an error
