@@ -4,8 +4,7 @@
 % Paper size
 \usepackage{a4}
 
-
-%Justify, centering
+% Justify, centering
 \usepackage{ragged2e}
 
 % Headings
@@ -101,5 +100,12 @@
 % Clever references (has to be loaded after hyperref)
 \usepackage{cleveref}
 
-
+% Change font sizes in Caption
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{dot}{. }
+\captionsetup{%
+	font=footnotesize,
+	labelfont=bf,
+	labelsep=dot,
+}
 
